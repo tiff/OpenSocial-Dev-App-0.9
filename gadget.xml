@@ -284,7 +284,7 @@ img.right{float:right;margin:0 0 10px 10px;}
       dafos.OpenSocial.prototype.setAppData = function (C, A, D) {
           var B = opensocial.newDataRequest();
           C = gadgets.json.stringify(C);
-          B.add(B.newUpdatePersonAppDataRequest("VIEWER", A, C), "updatedata");
+          B.add(B.newUpdatePersonAppDataRequest(A, C), "updatedata");
           B.add(B.newFetchPersonAppDataRequest(opensocial.newIdSpec({
               userId: "OWNER"
           }), A, C), "peopledata");
@@ -479,7 +479,7 @@ img.right{float:right;margin:0 0 10px 10px;}
       };
       quikos.prototype.setData = function (B, D, A) {
           this.ensureDataRequest_();
-          var C = this.request_.newUpdatePersonAppDataRequest(quikos.id.VIEWER, B, D);
+          var C = this.request_.newUpdatePersonAppDataRequest(B, D);
           this.request_.add(C, A);
           this.tags_.push(A);
           return this
