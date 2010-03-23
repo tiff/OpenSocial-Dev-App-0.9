@@ -2947,16 +2947,13 @@ img.right{float:right;margin:0 0 10px 10px;}
               <div id="codetab_toolbar" class="toolbar"></div> 
             </div> 
             <div id="code_controls"></div> 
-            <textarea class="code" id="code_exec"> 
-/**
+            <textarea class="code" id="code_exec">/**
  * DEFAULT SAMPLE CODE (0.9)
- * Fetches google search results for "Paris Hilton"
+ * Fetches name and thumbnail url for the VIEWER
  */
-osapi.http.get({
-  href: 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=Paris%20Hilton',
-  format: 'json'
-}).execute(function() {
-  alert("okay it's here");
+osapi.people.getViewer({fields: ['name', 'thumbnailUrl']}).execute(function(result) {
+  var thumbnailUrl = result.thumbnailUrl;
+  var userName = result.name.givenName;
 });
             </textarea> 
           </div> 
